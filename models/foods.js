@@ -4,27 +4,39 @@ require('mongoose-currency').loadType(mongoose);
 var Currency = mongoose.Types.Currency;
 
 const foodSchema = new Schema({
-    name_eng: {
+    engName: {
         type: String,
         required: true,
         unique: true
     },
-    name_cn: {
+    chName: {
         type: String,
         required: true,
         unique: true
     },
-    author: {
+    uploader: {
+        type: String,
+        required: true,
+        author: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        },
+        restaurant: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Restaurant'
+        },
+    },
+    likedBy: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    },
-    uploaderType: {
-        type: String,
-        required: true
-    },
+    }],
+    savedBy: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
     image: {
         type: String,
-        required:false
+        default: ''
     },
     category: {
         // sushi / noodle / hot-pot / drink / ...
