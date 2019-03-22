@@ -51,7 +51,7 @@ const restaurantSchema = new Schema({
         default: false
     },
     comments: [{
-        type: mongoose.Types.Schema.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
     }],
     savedBy:[{

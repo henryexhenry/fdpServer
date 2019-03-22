@@ -17,7 +17,7 @@ var User = new Schema({
         default: ''
     },
     age:{
-        type: number,
+        type: Number,
         min: 0,
         max: 100,
         required: true
@@ -30,7 +30,7 @@ var User = new Schema({
         type: String,
         default: ''
     },
-    phoneNumber:{type: number},
+    phoneNumber:{type: Number},
     friends:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
