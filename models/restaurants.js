@@ -4,7 +4,7 @@ require('mongoose-currency').loadType(mongoose);
 var Currency = mongoose.Types.Currency;
 
 const restaurantSchema = new Schema({
-    _id: Schema.Types.ObjectId,
+    //_id: Schema.Types.ObjectId,
     name: {
         type: String,
         required: true,

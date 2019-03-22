@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 
 var User = new Schema({
-    _id: Schema.Types.ObjectId,
+    //_id: Schema.Types.ObjectId,
     username: {
         type: String,
         required: true
@@ -20,7 +20,7 @@ var User = new Schema({
         type: Number,
         min: 0,
         max: 100,
-        required: true
+        required: false
     },
     description:{
         type: String,

@@ -4,7 +4,7 @@ require('mongoose-currency').loadType(mongoose);
 var Currency = mongoose.Types.Currency;
 
 const commentSchema = new Schema({
-    _id: mongoose.Types.Schema.ObjectId,
+    //_id: mongoose.Schema.Types.ObjectId,
     author:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
