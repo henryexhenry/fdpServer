@@ -19,7 +19,7 @@ restaurantRouter.route('/')
             }, (err) => next(err))
             .catch((err) => next(err))
     })
-    .post(cors.corsWithOptions, /*authenticate.verifyUser*/ , (req, res, next) => {
+    .post(cors.corsWithOptions, /*authenticate.verifyUser,*/  (req, res, next) => {
         Restaurants.create(req.body)
             .then((restaurant) => {
                 console.log('Success: ', restaurant);
@@ -33,7 +33,7 @@ restaurantRouter.route('/')
         res.statusCode = 403;
         res.end('PUT operation not supported on /restaurants');
     })
-    .delete(cors.corsWithOptions, /*authenticate.verifyUser, authenticate.verifyAdmin*/, (req, res, next) => {
+    .delete(cors.corsWithOptions, /*authenticate.verifyUser, authenticate.verifyAdmin,*/ (req, res, next) => {
         Restaurants.remove({})
             .then((resp) => {
                 res.statusCode = 200;

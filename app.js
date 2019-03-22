@@ -7,8 +7,21 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var foodRouter = require('./routes/foodRouter');
-var postRouter = require('./routes/postRouter');
+//var postRouter = require('./routes/postRouter');
 var restaurantRouter = require('./routes/restaurantRouter');
+var config = require('./config');
+const url = config.mongoUrl;
+
+// connect to MongoDB server
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+
+const connect = mongoose.connect(url);
+
+connect.then((db) => {
+    console.log("Connected correctly to server");
+}, (err) => { console.log(err) });
+
 
 var app = express();
 
@@ -25,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/foods', foodRouter);
-app.use('/posts', postRouter);
+//app.use('/posts', postRouter);
 app.use('/restaurants', restaurantRouter);
 
 // catch 404 and forward to error handler

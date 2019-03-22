@@ -19,7 +19,7 @@ foodRouter.route('/')
             }, (err) => next(err))
             .catch((err) => next(err))
     })
-    .post(cors.corsWithOptions, /*authenticate.verifyUser*/ , (req, res, next) => {
+    .post(cors.corsWithOptions, /*authenticate.verifyUser,*/  (req, res, next) => {
         Foods.create(req.body)
             .then((food) => {
                 console.log('Success: ', food);
@@ -33,7 +33,7 @@ foodRouter.route('/')
         res.statusCode = 403;
         res.end('PUT operation not supported on /foods');
     })
-    .delete(cors.corsWithOptions, /*authenticate.verifyUser, authenticate.verifyAdmin*/, (req, res, next) => {
+    .delete(cors.corsWithOptions, /*authenticate.verifyUser, authenticate.verifyAdmin,*/ (req, res, next) => {
         Foods.remove({})
             .then((resp) => {
                 res.statusCode = 200;
